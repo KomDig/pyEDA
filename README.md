@@ -11,4 +11,5 @@ See README in the `pyEDA` folder for the original information included with the
 
 ## References
 
-- [WESAD dataset](https://uni-siegen.sciebo.de/s/HGdUkoNlW1Ub0Gx/download)
+- [WESAD dataset article]()
+- [WESAD dataset download](https://uni-siegen.sciebo.de/s/HGdUkoNlW1Ub0Gx/download)

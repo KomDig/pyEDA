@@ -1,4 +1,14 @@
+# Mathematical libraries
 numpy
 scipy
+pandas
 cvxopt
+# Machine Learning
 torch
+scikit-learn
+# Plotting library
+matplotlib
+# Progress bar in console
+tqdm
+# HTTP
+requests
