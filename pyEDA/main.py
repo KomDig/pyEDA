@@ -1,4 +1,6 @@
 # Importing necessary libraries
+import pathlib
+
 import numpy as np
 import torch
 from torch import nn
@@ -70,7 +72,7 @@ def process_statistical(
 
 
 def prepare_automatic(
-    gsr_signal, sample_rate=128, new_sample_rate=40, k=32, epochs=100, batch_size=10
+    gsr_signal, sample_rate=128, new_sample_rate=40, k=32, epochs=100, batch_size=10, save_path=None
 ):
     gsrdata = np.array(gsr_signal)
     print(
@@ -145,18 +147,23 @@ def prepare_automatic(
         print("epoch : {}/{}, loss = {:.6f}".format(epoch + 1, epochs, loss))
 
     # Save the network
-    torch.save(model, "pyEDA\pyEDA\checkpoint.t7")
+    if not save_path:
+        save_path = str((pathlib.Path(__file__).parent / "checkpoint.t7").resolve())
+
+    torch.save(model, save_path)
+    return model
 
     ############################ Train the Autoencoder ##############################
     #################################################################################
 
 
-def process_automatic(gsr_signal):
+def process_automatic(gsr_signal, model=None):
     #################################################################################
     ############################ Feature Extraction Part ############################
 
-    # Load the network
-    model = torch.load("pyEDA\pyEDA\checkpoint.t7")
+    # Load the network, if not sent in:
+    if model is None:
+        model = torch.load(str((pathlib.Path(__file__).parent / "checkpoint.t7").resolve()))
 
     # Extract the features
     gsr_signal = np.reshape(gsr_signal, (1, gsr_signal.shape[0]))

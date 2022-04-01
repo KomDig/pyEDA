@@ -15,10 +15,18 @@ REQUIRES_PYTHON = ">=3.6.0"
 VERSION = "2.0"
 
 REQUIRED = [
+    # Mathematical libraries
     "numpy",
     "scipy",
+    "pandas",
     "cvxopt",
-    "torch"
+    # Machine Learning
+    "torch",
+    "scikit-learn",
+    # Progress bar in console
+    "tqdm",
+    # HTTP
+    "requests",
 ]
 
 here = os.path.abspath(os.path.dirname(__file__))

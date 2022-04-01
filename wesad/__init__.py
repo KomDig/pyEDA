@@ -39,6 +39,10 @@ _headers = {
 }
 
 
+class WESADException(Exception):
+    pass
+
+
 def download_wesad():
     """Downloads the WESAD dataset and extracts it"""
     if not _WESAD_DIR.exists() and not _WESAD_FILE.exists():
@@ -72,7 +76,7 @@ def load_synced_data_for_subject(subject_nbr):
 
     subject_folder = _WESAD_DIR / f"S{subject_nbr}"
     if not subject_folder.exists():
-        raise ValueError(f"Subject {subject_nbr} does not exist. Possible numbers are 2-11 and 13-17.")
+        raise WESADException(f"Subject {subject_nbr} does not exist. Possible numbers are 2-11 and 13-17.")
 
     # Regular pickle did not work. Seems to be pickled with pandas...
     # with open(subject_folder / f"S{subject_nbr}.pkl", "rb") as f:
@@ -98,7 +102,7 @@ def load_empatica_data_for_subject(subject_nbr):
     """
     subject_folder = _WESAD_DIR / f"S{subject_nbr}"
     if not subject_folder.exists():
-        raise ValueError(f"Subject {subject_nbr} does not exist. Possible numbers are 2-11 and 13-17.")
+        raise WESADException(f"Subject {subject_nbr} does not exist. Possible numbers are 2-11 and 13-17.")
     subject_file = subject_folder / f"S{subject_nbr}_E4_Data.zip"
     return _load_empatica_connect_zip_file(subject_file)
 

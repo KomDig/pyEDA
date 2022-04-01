@@ -72,7 +72,7 @@ def statistical_feature_extraction(
     # Removing line noise
     filtered_phasic_gsr = phasic_gsr  # comment out the next line if the line noise in negligble in your data
     filtered_phasic_gsr = butter_lowpassfilter(
-        phasic_gsr, 5.0 / sample_rate, sample_rate, order=4
+        phasic_gsr, 1.0 / sample_rate, sample_rate, order=4
     )
 
     # Update working_data
