@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyeda-pkg"
+version = "2.0"
+description = "A Python package solution for the pyeda codebase"
+readme = "README.md"
+license = { text = "GPL-3.0" }
+authors = [
+    { name = "Henrik Blidh", email = "henrik.blidh@swedwise.se" }
+]
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "pandas",
+    "cvxopt",
+    "torch",
+    "scikit-learn",
+    "matplotlib",
+    "tqdm",
+    "requests",
+]
+
+[project.urls]
+Homepage = "https://github.com/KomDig/pyEDA"
+
+[tool.setuptools.packages.find]
+exclude = ["tests*"]
