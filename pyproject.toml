@@ -9,7 +9,7 @@ description = "A Python package solution for the pyeda codebase"
 readme = "README.md"
 license = { text = "GPL-3.0" }
 authors = [
-    { name = "Henrik Blidh", email = "henrik.blidh@swedwise.se" }
+    { name = "Henrik Blidh", email = "henrik.blidh@nedomkull.com" }
 ]
 requires-python = ">=3.8"
 classifiers = [
